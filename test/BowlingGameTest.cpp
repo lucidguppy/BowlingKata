@@ -14,9 +14,7 @@ class BowlingTestsFixture {
 };
 
 TEST_CASE_METHOD(BowlingTestsFixture, "GutterGame", "[bowlingGame]") {
-  int n = 20;
-  int pins = 0;
-  rollMany(n, pins);
+  rollMany(20, 0);
   REQUIRE(0 == g.getScore());
 }
 
