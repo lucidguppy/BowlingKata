@@ -1,16 +1,28 @@
 #include "catch.hpp"
 #include "BowlingGame.h"
 
-TEST_CASE("TestBowlingGame", "[bowlingGame]") {
-  Game g = Game();
-  SECTION("Gutter Game"){
-    for (int ii=0; ii<20; ii++)
-      g.roll(0);
-    REQUIRE(0 == g.getScore());
+class BowlingTestsFixture {
+ public:
+  Game g;
+  BowlingTestsFixture()
+      : g(Game()) {
   }
-  SECTION("All Ones"){
-    for (int ii=0; ii<20; ii++)
-      g.roll(1);
-    REQUIRE(20 == g.getScore());
+  void rollMany(int n, int pins) {
+    for (int ii = 0; ii < n; ii++)
+      g.roll(pins);
   }
+};
+
+TEST_CASE_METHOD(BowlingTestsFixture, "GutterGame", "[bowlingGame]") {
+  int n = 20;
+  int pins = 0;
+  rollMany(n, pins);
+  REQUIRE(0 == g.getScore());
+}
+
+TEST_CASE_METHOD(BowlingTestsFixture, "AllOnes", "[bowlingGame]") {
+  int n = 20;
+  int pins = 1;
+  rollMany(n, pins);
+  REQUIRE(20 == g.getScore());
 }
