@@ -20,6 +20,11 @@ class BowlingTestsFixture {
   }
 };
 
+TEST_CASE_METHOD(BowlingTestsFixture, "PerfectGame", "[bowlingGame]") {
+  rollMany(12, 10);
+  REQUIRE(300 == g.getScore());
+}
+
 TEST_CASE_METHOD(BowlingTestsFixture, "GutterGame", "[bowlingGame]") {
   rollMany(20, 0);
   REQUIRE(0 == g.getScore());
