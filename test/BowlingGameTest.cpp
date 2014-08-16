@@ -19,8 +19,6 @@ TEST_CASE_METHOD(BowlingTestsFixture, "GutterGame", "[bowlingGame]") {
 }
 
 TEST_CASE_METHOD(BowlingTestsFixture, "AllOnes", "[bowlingGame]") {
-  int n = 20;
-  int pins = 1;
-  rollMany(n, pins);
+  rollMany(20, 1);
   REQUIRE(20 == g.getScore());
 }
