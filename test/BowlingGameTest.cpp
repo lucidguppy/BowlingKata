@@ -15,6 +15,9 @@ class BowlingTestsFixture {
     g.roll(5);
     g.roll(5);
   }
+  void rollStrike() {
+  g.roll(10);
+  }
 };
 
 TEST_CASE_METHOD(BowlingTestsFixture, "GutterGame", "[bowlingGame]") {
@@ -34,8 +37,9 @@ TEST_CASE_METHOD(BowlingTestsFixture, "TestOneSpare", "[bowlingGame]") {
   REQUIRE(16 == g.getScore());
 }
 
-TEST_CASE_METHOD(BowlingTestsFixture, "TestOneSpare", "[bowlingGame]") {
-  g.roll(10);
+TEST_CASE_METHOD(BowlingTestsFixture, "TestOneStrike", "[bowlingGame]") {
+
+  rollStrike();
   g.roll(3);
   g.roll(4);
   rollMany(17, 0);
