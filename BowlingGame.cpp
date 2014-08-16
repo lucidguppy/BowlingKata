@@ -1,5 +1,6 @@
 #include "BowlingGame.h"
 #include <vector>
+#include <cassert>
 
 void Game::roll(int pins) {
   currentRoll += 1;
